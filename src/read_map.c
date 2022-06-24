@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:10:45 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/24 11:58:27 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/24 12:13:15 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	ft_print_map(char **map)
 {
 	mlx_t		*mlx;
 	mlx_image_t	*img;
-	t_map_tiles	**map_textures;
+	t_map_tiles	***map_textures;
 	int			x;
 	int			y;
 
 	mlx = mlx_init(ft_map_wth(map), ft_map_hth(map), "SO_LONG", true);
 	if (!mlx)
 		exit(EXIT_FAILURE);
-	map_textures = ft_map_line();
+	map_textures = ft_map_texture(ft_map_wth(map), ft_map_hth(map));
 	y = 0;
 	while (y < ft_map_hth(map))
 	{
@@ -47,7 +47,7 @@ void	ft_print_map(char **map)
 		{
 			img = mlx_texture_to_image(mlx, mlx_load_png(LAND_PATH));
 			mlx_image_to_window(mlx, img, x, y);
-			img = mlx_texture_to_image(mlx, mlx_load_png(map_textures[x / 64]->path));
+			img = mlx_texture_to_image(mlx, mlx_load_png(map_textures[y / 64][x / 64]->path));
 			mlx_image_to_window(mlx, img, x, y);
 			x += 64;
 		}
@@ -59,22 +59,36 @@ void	ft_print_map(char **map)
 	mlx_terminate(mlx);
 }
 
-t_map_tiles	**ft_map_line(void)
+t_map_tiles	***ft_map_texture(int size_l, int size_c)
+{
+	t_map_tiles	***map_texture;
+	int			i;
+
+	map_texture = malloc(sizeof(t_map_tiles **) * size_c);
+	if (!map_texture)
+		exit(EXIT_FAILURE);
+	i = -1;
+	while (++i < size_c)
+		map_texture[i] = ft_map_line(size_l);
+	return (map_texture);
+}
+
+t_map_tiles	**ft_map_line(int size)
 {
 	t_map_tiles	*tile;
 	t_map_tiles	**map_line;
 	int			i;
 
 	i = -1;
-	map_line = malloc(sizeof(t_map_tiles *) * 35);
+	map_line = malloc(sizeof(t_map_tiles *) * size);
 	if (!map_line)
 		exit(EXIT_FAILURE);
-	while (++i < 35)
+	while (++i < size)
 	{
 		tile = malloc(sizeof(t_map_tiles));
 		if (!tile)
 			exit(EXIT_FAILURE);
-		tile->path = OBSTACLE_PATH;
+		tile->path = EXIT_PATH;
 		map_line[i] = tile;
 	}
 	return (map_line);
