@@ -6,13 +6,13 @@
 #    By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 09:28:41 by ytoro-mo          #+#    #+#              #
-#    Updated: 2022/06/22 09:29:41 by ytoro-mo         ###   ########.fr        #
+#    Updated: 2022/06/24 11:20:44 by ytoro-mo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
 CFLAGS	= -w -Wunreachable-code -Ofast
-LIBMLX	= ./lib/MLX42
+LIBMLX	= ./lib/MLX42_
 LIBFT	= ./lib/libft
 USER	= ytoro-mo
 

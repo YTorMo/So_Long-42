@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:06:00 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/24 09:41:35 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:35:46 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define LAND_PATH "/Users/ytoro-mo/Documents/Cursus/SO_LONG/assets/Land2.png"
 # define EXIT_PATH "/Users/ytoro-mo/Documents/Cursus/SO_LONG/assets/Exit_1.png"
 # define LAND_BASE_PATH "/Users/ytoro-mo/Documents/Cursus/SO_LONG/assets/Land_Base.png"
-# define OBSTACLE_PATH "/Users/ytoro-mo/Documents/Cursus/SO_LONG/assets/Obstacle1.png"
+# define OBSTACLE_PATH "/Users/ytoro-mo/Documents/Cursus/SO_LONG/assets/Obstacle_roc.png"
 
 typedef struct s_map_tiles
 {
