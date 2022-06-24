@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:05:04 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/24 12:11:10 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/24 12:25:51 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@
 void		ft_read_map(int fd);
 int			ft_check_file(char *file);
 void		ft_print_map(char **map);
-t_map_tiles	***ft_map_texture(int size_l, int size_c);
-t_map_tiles	**ft_map_line(int size);
-char		*ft_texture_selector(char c);
+t_map_tiles	***ft_map_texture(int size_l, int size_c, char **map);
+t_map_tiles	**ft_map_line(int size, char *line);
+char		*ft_texture_path(char c);
 int			ft_map_wth(char **map);
 int			ft_map_hth(char **map);
 
