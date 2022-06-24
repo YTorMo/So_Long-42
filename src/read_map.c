@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:10:45 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/23 18:07:27 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:11:03 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_read_map(int fd)
 	while (line[ft_strlen(line) - 1] == '\n')
 		line = ft_strjoin(line, get_next_line_c(fd));
 	map = ft_split(line, '\n');
-	free(line);
+	//free(line);
 	ft_print_map(map);
 }
 
@@ -31,29 +31,54 @@ void	ft_print_map(char **map)
 {
 	mlx_t		*mlx;
 	mlx_image_t	*img;
-	t_map_tiles	**map_textures;
-	t_map_tiles	*line_tmp;
+	//t_map_tiles	**map_textures;
+	int 		x;
+	int			y;
 
 	mlx = mlx_init(ft_map_wth(map), ft_map_hth(map), "SO_LONG", true);
 	if (!mlx)
 		exit(EXIT_FAILURE);
-	map_textures = ft_tiled_map(map);
-	printf("VALUE:		%i\n", map_textures[0]->x_pos);
-	while (*map_textures)
+	//map_textures = ft_tiled_map(map);
+	//printf("VALUE:		%i\n", x_pos);
+	y = 0;
+	while (y < ft_map_hth(map))
 	{
-		line_tmp = *map_textures;
-		while (line_tmp)
+		x = 0;
+		while (x < ft_map_wth(map))
 		{
-			mlx_image_to_window(mlx, mlx_texture_to_image(mlx,
-					line_tmp->texture), line_tmp->x_pos, line_tmp->y_pos);
-			line_tmp = line_tmp->nxt;
+			if (y != 0)
+			{
+				img = mlx_texture_to_image(mlx, mlx_load_png(LAND_PATH));
+				mlx_image_to_window(mlx, img, x, y);
+			}
+			else
+			{
+				img = mlx_texture_to_image(mlx, mlx_load_png(OBSTACLE_PATH));
+				mlx_image_to_window(mlx, img, x, y);
+			}
+				x += 64;
 		}
-		map_textures++;
+		y += 64;
 	}
+	
+/* 	i = -1;
+	while (++i < (ft_map_hth(map) / 64))
+	{
+		//line_tmp = map_textures[i];
+		j = -1;
+		while (++j < (ft_map_wth(map) / 64))
+		{
+			printf("VALUE:		%s\n", map_textures[i]->path);
+			img = mlx_texture_to_image(mlx, mlx_load_png(map_textures[i]->path));
+			mlx_image_to_window(mlx, img, map_textures[i]->x_pos, map_textures[i]->y_pos);
+			map_textures[i] = map_textures[i]->nxt;
+		}
+	} */
 	mlx_loop(mlx);
 	mlx_delete_image(mlx, img);
 	mlx_terminate(mlx);
 }
+	//free(map);
 
 /* 	while (x < 1024)
 	{
@@ -67,7 +92,7 @@ void	ft_print_map(char **map)
 		x += 64;
 	} */
 
-t_map_tiles	**ft_tiled_map(char **map)
+/* t_map_tiles	**ft_tiled_map(char **map)
 {
 	t_map_tiles	**map_texture;
 	int			i;
@@ -83,40 +108,33 @@ t_map_tiles	**ft_tiled_map(char **map)
 	i = -1;
 	while (map[++i])
 	{
-		map_texture[i] = ft_map_line(map[i], y);
+		map_texture[i] = ft_map_line(map[i], y, (ft_map_wth(map) / 64));
 		y += 64;
 	}
 	map_texture[i] = NULL;
-	free(map);
 	return (map_texture);
 }
 
-t_map_tiles	*ft_map_line(char *line, int y)
+t_map_tiles	*ft_map_line(char *line, int y, int size)
 {
 	int			i;
 	t_map_tiles	*map_line;
-	t_map_tiles	*map_tmp;
 	int			x;
 
 	i = -1;
 	x = 0;
-	map_line = malloc(sizeof(t_map_tiles *));
+	map_line = malloc(sizeof(t_map_tiles) * size);
 	if (!map_line)
 		return (NULL);
-	map_tmp = map_line;
 	while (line[++i])
 	{
-		map_tmp->texture = mlx_load_png(ft_texture_selector(line[i]));
-		map_tmp->x_pos = x;
-		map_tmp->y_pos = y;
+		map_line[i].path = ft_texture_selector(line[i]);
+		map_line[i].x_pos = x;
+		map_line[i].y_pos = y;
 		x += 64;
-		if (line[i + 1])
-			map_tmp->nxt = malloc(sizeof(t_map_tiles *));
-		else
-			map_tmp->nxt = NULL;
-		map_tmp = map_tmp->nxt;
-	}
-	free(line);
+	} */
+	//map_line[i] = 0;
+/* 	free(line);
 	return (map_line);
 }
 
@@ -133,3 +151,4 @@ char	*ft_texture_selector(char c)
 	else
 		return (LAND_PATH);
 }
+ */

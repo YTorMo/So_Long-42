@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:06:00 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/06/23 15:38:40 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/06/24 09:41:35 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct s_map_tiles
 {
-	mlx_texture_t			*texture;
+	char					*path;
 	int						x_pos;
 	int						y_pos;
 	struct s_map_tiles		*nxt;
