@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+         #
+#    By: Yago_42 <Yago_42@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 09:28:41 by ytoro-mo          #+#    #+#              #
-#    Updated: 2022/06/24 11:20:44 by ytoro-mo         ###   ########.fr        #
+#    Updated: 2022/06/29 11:23:54 by Yago_42          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIBFT	= ./lib/libft
 USER	= ytoro-mo
 
 HEADERS	= -I ./include -I $(LIBMLX)/include -I $(LIBFT)
-LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/libft.a
+LIBS	= -lglfw -L /usr/local/Cellar/glfw/3.3.7/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/libft.a
 SRCS	= $(shell find ./src -iname "*.c")
 OBJS	= ${SRCS:.c=.o}
 
