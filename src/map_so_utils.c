@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_so_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yago_42 <Yago_42@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:39:04 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/07/01 20:24:26 by Yago_42          ###   ########.fr       */
+/*   Updated: 2022/09/05 12:41:55 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ int	ft_map_hth(char **map)
 	return (count);
 }
 
-void ft_free_txt(char **txt)
+void	ft_free_txt(char **txt)
 {
-    int i;
-    
-    i = -1;
-    while (txt[++i])
-    {
-         free(txt[i]);
-    }
-    free (txt);
+	int	i;
+
+	i = -1;
+	while (txt[++i])
+	{
+		free(txt[i]);
+	}
+	free(txt);
 }

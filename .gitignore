@@ -3,4 +3,4 @@ README.txt
 .DS_Store
 *.o
 ._*
-lib/MLX42_
+lib/MLX42_/*

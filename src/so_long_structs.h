@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_structs.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:06:00 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/05 08:56:07 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/05 12:42:05 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 # include "so_long.h"
 
-# define LAND_PATH "../assets/Land2.png"
-# define EXIT_PATH "../assets/exit_trs.png"
-# define LAND_BASE_PATH "../assets/Land_Base.png"
-# define OBSTACLE_PATH "../assets/Obs_trs.png"
-# define COLLECTIBLE_PATH "../assets/collect.png"
-# define PJR_PATH "../assets/bun_R.png"
-# define PJL_PATH "../assets/bun_L.png"
-# define PJU_PATH "../assets/bun_U.png"
-# define PJD_PATH "../assets/bun_D.png"
+# define LAND_PATH "./assets/Land2.png"
+# define EXIT_PATH "./assets/exit_trs.png"
+# define LAND_BASE_PATH "./assets/Land_Base.png"
+# define OBSTACLE_PATH "./assets/Obs_trs.png"
+# define COLLECTIBLE_PATH "./assets/collect.png"
+# define PJR_PATH "./assets/bun_R.png"
+# define PJL_PATH "./assets/bun_L.png"
+# define PJU_PATH "./assets/bun_U.png"
+# define PJD_PATH "./assets/bun_D.png"
 
 typedef struct s_map_tiles
 {
@@ -38,7 +38,7 @@ typedef struct s_pj
 	char	*path;
 	int		x_pos;
 	int		y_pos;
-	
+
 }	t_pj;
 
 typedef struct s_map_data
@@ -52,7 +52,7 @@ typedef struct s_map_data
 	mlx_image_t	*txt;
 	int			mov;
 	mlx_image_t	*txt_c;
-	
+
 }	t_map_data;
 
 #endif
