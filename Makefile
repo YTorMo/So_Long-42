@@ -3,23 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Yago_42 <Yago_42@student.42.fr>            +#+  +:+       +#+         #
+#    By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 09:28:41 by ytoro-mo          #+#    #+#              #
-#    Updated: 2022/06/29 11:23:54 by Yago_42          ###   ########.fr        #
+#    Updated: 2022/09/05 09:36:11 by ytoro-mo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
 CFLAGS	= -w -Wunreachable-code -Ofast
-LIBMLX	= ./lib/MLX42_
-LIBFT	= ./lib/libft
+LIB_A	= ./lib
 USER	= ytoro-mo
+GLFW	= /System/Volumes/Data/sgoinfre/goinfre/Perso/ytoro-mo/homebrew/Cellar/glfw/3.3.8/lib
 
-HEADERS	= -I ./include -I $(LIBMLX)/include -I $(LIBFT)
-LIBS	= -lglfw -L /usr/local/Cellar/glfw/3.3.7/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/libft.a
+HEADERS	= -I ./include
+LIBS	= -lglfw -L $(GLFW) $(LIB_A)/libmlx42.a $(LIB_A)/libft.a
 SRCS	= $(shell find ./src -iname "*.c")
 OBJS	= ${SRCS:.c=.o}
+
+#/usr/local/Cellar/glfw/3.3.7/lib/ 
 
 BOLD	= \033[1m
 BLACK	= \033[30;1m
@@ -34,13 +36,7 @@ RESET	= \033[0m
 
 # //= Recipes =//
 
-all: libft libmlx $(NAME)
-
-libft:
-	@$(MAKE) -C $(LIBFT)
-
-libmlx:
-	@$(MAKE) -C $(LIBMLX)
+all: $(NAME)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "$(GREEN)$(BOLD)\rCompiling: $(notdir $<)\r\e[35C[OK]\n$(RESET)"
@@ -50,13 +46,9 @@ $(NAME): $(OBJS)
 
 clean:
 	@rm -f $(OBJS)
-	@$(MAKE) -C $(LIBFT) clean
-	@$(MAKE) -C $(LIBMLX) clean
 
 fclean: clean
 	@rm -f $(NAME)
-	@$(MAKE) -C $(LIBFT) fclean
-	@$(MAKE) -C $(LIBMLX) fclean
 
 re: clean all
 

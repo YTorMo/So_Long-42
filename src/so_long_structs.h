@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_structs.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yago_42 <Yago_42@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:06:00 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/07/01 19:18:22 by Yago_42          ###   ########.fr       */
+/*   Updated: 2022/09/05 08:56:07 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 # include "so_long.h"
 
-# define LAND_PATH "/Users/Yago_42/Documents/Cursus_casa/SO_LONG/assets/Land2.png"
-# define EXIT_PATH "/Users/Yago_42/Documents/Cursus_casa/SO_LONG/assets/Exit_trns.png"
-# define LAND_BASE_PATH "/Users/Yago_42/Documents/Cursus_casa/SO_LONG/assets/Land_Base.png"
-# define OBSTACLE_PATH "/Users/Yago_42/Documents/Cursus_casa/SO_LONG/assets/Obstacle_trns.png"
-# define COLLECTIBLE_PATH "/Users/Yago_42/Documents/Cursus_casa/SO_LONG/assets/Collectible_trns.png"
-# define PJR_PATH "/Users/Yago_42/Documents/Cursus_casa/SO_LONG/assets/pj_r.png"
-# define PJL_PATH "/Users/Yago_42/Documents/Cursus_casa/SO_LONG/assets/pj_l.png"
-# define PJU_PATH "/Users/Yago_42/Documents/Cursus_casa/SO_LONG/assets/pj_u.png"
-# define PJD_PATH "/Users/Yago_42/Documents/Cursus_casa/SO_LONG/assets/pj_d.png"
+# define LAND_PATH "../assets/Land2.png"
+# define EXIT_PATH "../assets/exit_trs.png"
+# define LAND_BASE_PATH "../assets/Land_Base.png"
+# define OBSTACLE_PATH "../assets/Obs_trs.png"
+# define COLLECTIBLE_PATH "../assets/collect.png"
+# define PJR_PATH "../assets/bun_R.png"
+# define PJL_PATH "../assets/bun_L.png"
+# define PJU_PATH "../assets/bun_U.png"
+# define PJD_PATH "../assets/bun_D.png"
 
 typedef struct s_map_tiles
 {
