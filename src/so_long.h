@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:05:04 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/05 12:42:10 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:00:35 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,12 @@ void		ft_key_escape(t_map_data *map);
 void		ft_collec_check(t_map_data *map, int nxt_x, int nxt_y);
 void		ft_map_moves(t_map_data *map);
 void		ft_free_txt(char **txt);
-int			ft_map_checker(int fd);
+int			ft_map_checker(char	**path);
+int			ft_map_checker_2(char	**map);
 int			ft_check_comp(char **map);
-int			ft_check_atleast(char **map);
+int			ft_check_atleast(char **map, int i);
 int			ft_check_line_size(char **map);
-int			ft_check_line_size(char **map);
-int			*ft_check_atleast_2(char **map, int *c);
+void		game_init(int fd, char **file);
+void		map_struct_cleaner(t_map_data	*map);
 
 #endif

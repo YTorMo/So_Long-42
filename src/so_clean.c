@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tile_checker.c                                     :+:      :+:    :+:   */
+/*   so_clean.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 13:00:50 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/07 12:45:56 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/09/06 09:44:13 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/09/07 11:32:13 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_collec_check(t_map_data *map, int nxt_x, int nxt_y)
+void	map_struct_cleaner(t_map_data	*map)
 {
-	char	*items;
+	int	i;
+	int	j;
 
-	if (!ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, COLLECTIBLE_PATH,
-		ft_strlen(COLLECTIBLE_PATH)))
+	i = -1;
+	while (map->map_textures[++i])
 	{
-		map->collec--;
-		map->map_textures[nxt_y][nxt_x]->path = LAND_PATH;
-		mlx_delete_image(map->mlx, map->txt_c);
-		items = ft_strjoin_3("ITEMS:	", ft_itoa(map->collec));
-		map->txt_c = mlx_put_string(map->mlx, items, 110, map->map_hth);
-		free (items);
+		j = -1;
+		while (map->map_textures[i][++j])
+		{
+			free(map->map_textures[i][j]->back_img);
+			free(map->map_textures[i][j]->img);
+			free(map->map_textures[i][j]);
+		}
+		free(map->map_textures[i]);
 	}
+	free (map->txt);
+	free (map->txt_c);
+	free(map->map_textures);
+	free(map->pj_init);
+	free (map);
 }
