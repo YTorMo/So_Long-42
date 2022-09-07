@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:18 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/05 12:43:07 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/06 15:12:46 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_game_init(int fd)
 {
 	t_map_data	*map;
+	char		*item;
 
 	map = ft_map_data(fd);
 	map->mlx = mlx_init(map->map_wth, map->map_hth + 20, "SO_LONG", true);
@@ -24,20 +25,23 @@ void	ft_game_init(int fd)
 	ft_back_printer(map);
 	ft_img_printer(map);
 	map->txt = mlx_put_string(map->mlx, "MOVES:	0", 0, map->map_hth);
-	map->txt_c = mlx_put_string(map->mlx, ft_strjoin("ITEMS:	",
-				ft_itoa(map->collec)), 110, map->map_hth);
+	item = ft_strjoin_3("ITEMS:	", ft_itoa(map->collec));
+	map->txt_c = mlx_put_string(map->mlx, item, 110, map->map_hth);
+	free(item);
 	map->mov = 0;
 	mlx_key_hook(map->mlx, &ft_keyhook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
+	map_struct_cleaner(map);
 }
 
 // NO olvidar mlx_delete_image(mlx, img);
 
 void	ft_img_filler(t_map_data *map)
 {
-	int	i;
-	int	j;
+	int				i;
+	int				j;
+	mlx_texture_t	*textu;
 
 	i = -1;
 	while (map->map_textures[++i])
@@ -45,8 +49,10 @@ void	ft_img_filler(t_map_data *map)
 		j = -1;
 		while (map->map_textures[i][++j])
 		{
+			textu = mlx_load_png(map->map_textures[i][j]->path);
 			map->map_textures[i][j]->img = mlx_texture_to_image(map->mlx,
-					mlx_load_png(map->map_textures[i][j]->path));
+					textu);
+			mlx_delete_texture(textu);
 		}
 	}
 }
@@ -70,8 +76,9 @@ void	ft_img_printer(t_map_data *map)
 
 void	ft_back_printer(t_map_data *map)
 {
-	int	i;
-	int	j;
+	int				i;
+	int				j;
+	mlx_texture_t	*textu;
 
 	i = -1;
 	while (map->map_textures[++i])
@@ -79,9 +86,13 @@ void	ft_back_printer(t_map_data *map)
 		j = -1;
 		while (map->map_textures[i][++j])
 		{
-			mlx_image_to_window(map->mlx, mlx_texture_to_image(map->mlx,
-					mlx_load_png(LAND_PATH)), map->map_textures[i][j]->x_pos,
+			textu = mlx_load_png(LAND_PATH);
+			map->map_textures[i][j]->back_img = mlx_texture_to_image(map->mlx,
+					textu);
+			mlx_image_to_window(map->mlx, map->map_textures[i][j]->back_img,
+				map->map_textures[i][j]->x_pos,
 				map->map_textures[i][j]->y_pos);
+			mlx_delete_texture(textu);
 		}
 	}
 }

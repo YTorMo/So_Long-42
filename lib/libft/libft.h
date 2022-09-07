@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:55:41 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/05 11:08:24 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:59:06 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,14 @@ void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *s1);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin_2(char *s1, char *s2);
+char				*ft_strjoin_3(char *s1, char *s2);
+char				*ft_strjoin_4(char *s1, char *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
+char				**ft_split_2(char const *str, char c);
 char				*ft_itoa(int n);
+char				*ft_itoa_2(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_putchar_fd(char c, int fd);
@@ -74,8 +79,8 @@ char				*ft_get_buff_text(int fd, char *all_txt);
 char				*ft_get_line(char *all_txt);
 char				*ft_begining_next_buff_text(char *all_txt);
 char				*get_next_line_c(int fd);
-char				*ft_strchr_gnl(char *s, int c);
-char				*ft_strjoin_gnl(char *s1, char *s2);
+int					ft_strlen_gnl(char *string);
+char				*ft_strdup_gnl(char *string);
 char				*ft_newstr(char *all_txt);
 int					ft_printf(const char *str, ...);
 int					ft_replacement(const char *str, va_list input);

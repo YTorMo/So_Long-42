@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 13:45:56 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/05 13:03:39 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/07 12:50:35 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,24 @@ void	ft_key_up(t_map_data *map)
 		else if (!(map->collec) && !(ft_strncmp(
 					map->map_textures[nxt_y][nxt_x]->path,
 				EXIT_PATH, ft_strlen(EXIT_PATH))))
-		{
-			ft_end_game_up(map, nxt_x, nxt_y);
-		}
+			mlx_close_window(map->mlx);
 	}
 }
 
 void	ft_mov_up(t_map_data *map, int nxt_x, int nxt_y)
 {
+	mlx_texture_t	*textu;
+
 	ft_collec_check(map, nxt_x, nxt_y);
+	textu = mlx_load_png(PJU_PATH);
 	mlx_delete_image(map->mlx, map->map_textures[nxt_y][nxt_x]->img);
-	mlx_image_to_window(map->mlx, mlx_texture_to_image(map->mlx,
-			mlx_load_png(PJU_PATH)), nxt_x * 64, nxt_y * 64);
+	map->map_textures[nxt_y][nxt_x]->img = mlx_texture_to_image(map->mlx,
+			textu);
+	mlx_image_to_window(map->mlx, map->map_textures[nxt_y][nxt_x]->img,
+		nxt_x * 64, nxt_y * 64);
+	mlx_delete_texture(textu);
 	mlx_delete_image(map->mlx, map->map_textures[nxt_y + 1][nxt_x]->img);
-	mlx_image_to_window(map->mlx, mlx_texture_to_image(map->mlx,
-			mlx_load_png(LAND_PATH)), nxt_x * 64, (nxt_y + 1) * 64);
+	map->map_textures[nxt_y + 1][nxt_x]->img = NULL;
 	ft_map_moves(map);
 	map->pj_init->y_pos = nxt_y * 64;
-}
-
-void	ft_end_game_up(t_map_data *map, int nxt_x, int nxt_y)
-{
-	mlx_image_to_window(map->mlx, mlx_texture_to_image(map->mlx,
-			mlx_load_png(PJU_PATH)), nxt_x * 64, nxt_y * 64);
-	mlx_delete_image(map->mlx, map->map_textures[nxt_y + 1][nxt_x]->img);
-	mlx_image_to_window(map->mlx, mlx_texture_to_image(map->mlx,
-			mlx_load_png(LAND_PATH)), nxt_x * 64, (nxt_y + 1) * 64);
-	map->pj_init->y_pos = nxt_y * 64;
-	mlx_close_window(map->mlx);
 }

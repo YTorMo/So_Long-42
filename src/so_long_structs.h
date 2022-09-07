@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:06:00 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/05 12:42:05 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/07 09:10:08 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ typedef struct s_map_tiles
 	int				x_pos;
 	int				y_pos;
 	mlx_image_t		*img;
+	mlx_image_t		*back_img;
+	mlx_image_t		*temp_1;
+	mlx_image_t		*temp_2;
 }	t_map_tiles;
 
 typedef struct s_pj
@@ -54,5 +57,10 @@ typedef struct s_map_data
 	mlx_image_t	*txt_c;
 
 }	t_map_data;
+
+typedef struct s_img_cleaner
+{
+	mlx_image_t		**img;
+}	t_img_cleaner;
 
 #endif
