@@ -30,7 +30,22 @@ t_ene	**ft_fill_enemies(char **p_map)
 t_ene	*ft_new_enemy(char **p_map)
 {
 	t_ene	*enemy;
+	int		i;
+	int		j;
 
 	enemy = malloc(sizeof(t_ene));
+	i = -1;
+	while (p_map[++i])
+	{
+		j = -1;
+		while (p_map[i][++j])
+		{
+			if (p_map[i][j] == 'N')
+			{
+				enemy->x_pos = j * 64;
+				enemy->y_pos = i * 64;
+			}
+		}
+	}
 	return (enemy);
 }

@@ -81,6 +81,7 @@ char	**ft_paths(void)
 	paths[5] = PJU2_PATH;
 	paths[6] = PJD_PATH;
 	paths[7] = PJD2_PATH;
+	paths[8] = ENEMY_PATH;
 	return (paths);
 }
 
@@ -91,7 +92,7 @@ int	ft_is_nxt_pj(char	**check_path)
 
 	paths = ft_paths();
 	i = -1;
-	while (++i < 8)
+	while (++i < 9)
 	{
 		if (!ft_strncmp(check_path, paths[i], 69))
 			return (0);
