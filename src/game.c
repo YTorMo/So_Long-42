@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:18 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/06 15:12:46 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/09 09:41:36 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ void	ft_game_init(int fd)
 	mlx_terminate(map->mlx);
 	map_struct_cleaner(map);
 }
-
-// NO olvidar mlx_delete_image(mlx, img);
 
 void	ft_img_filler(t_map_data *map)
 {

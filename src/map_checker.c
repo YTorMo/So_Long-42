@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:57:29 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/06 09:34:13 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/07 17:22:19 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_check_comp(char **map)
 		while (map[i][++j])
 		{
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C' &&
-				map[i][j] != 'E' && map[i][j] != 'P')
+				map[i][j] != 'E' && map[i][j] != 'P' && map[i][j] != 'N')
 			{
 				perror("Error\nMap composition is incorrect.");
 				return (0);
@@ -101,7 +101,7 @@ int	ft_check_atleast(char **map, int i)
 				c[2]++;
 		}
 	}
-	if (!c[0] || !c[1] || !c[2])
+	if (!c[0] || !c[2] || c[1] != 1)
 	{
 		perror("Error\nMap contents are not correct.");
 		return (0);

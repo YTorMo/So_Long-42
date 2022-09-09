@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:06:00 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/07 09:10:08 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/09 13:32:22 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@
 # define OBSTACLE_PATH "./assets/Obs_trs.png"
 # define COLLECTIBLE_PATH "./assets/collect.png"
 # define PJR_PATH "./assets/bun_R.png"
+# define PJR2_PATH "./assets/bun_R2.png"
 # define PJL_PATH "./assets/bun_L.png"
+# define PJL2_PATH "./assets/bun_L2.png"
 # define PJU_PATH "./assets/bun_U.png"
+# define PJU2_PATH "./assets/bun_U2.png"
 # define PJD_PATH "./assets/bun_D.png"
+# define PJD2_PATH "./assets/bun_D2.png"
+# define ENEMY_PATH "./assets/ene.png"
+# define GO_PATH "./assets/game_over.png"
 
 typedef struct s_map_tiles
 {
@@ -32,8 +38,6 @@ typedef struct s_map_tiles
 	int				y_pos;
 	mlx_image_t		*img;
 	mlx_image_t		*back_img;
-	mlx_image_t		*temp_1;
-	mlx_image_t		*temp_2;
 }	t_map_tiles;
 
 typedef struct s_pj
@@ -44,6 +48,13 @@ typedef struct s_pj
 
 }	t_pj;
 
+typedef struct s_ene
+{
+	int		x_pos;
+	int		y_pos;
+
+}	t_ene;
+
 typedef struct s_map_data
 {
 	t_map_tiles	***map_textures;
@@ -52,9 +63,14 @@ typedef struct s_map_data
 	int			map_hth;
 	t_pj		*pj_init;
 	mlx_t		*mlx;
+	mlx_t		*mlx_go;
 	mlx_image_t	*txt;
 	int			mov;
 	mlx_image_t	*txt_c;
+	int			act_end;
+	int			ene_mov;
+	t_ene		**enemies;
+	int			ene_num;
 
 }	t_map_data;
 

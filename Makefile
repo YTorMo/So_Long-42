@@ -6,12 +6,12 @@
 #    By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 09:28:41 by ytoro-mo          #+#    #+#              #
-#    Updated: 2022/09/05 12:42:21 by ytoro-mo         ###   ########.fr        #
+#    Updated: 2022/09/09 10:24:27 by ytoro-mo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= so_long
-CFLAGS	= -w -Wunreachable-code -Ofast
+CFLAGS	= -w -Wunreachable-code -Ofast -g
 LIB_A	= ./lib
 USER	= ytoro-mo
 GLFW	= /System/Volumes/Data/sgoinfre/goinfre/Perso/ytoro-mo/homebrew/Cellar/glfw/3.3.8/lib

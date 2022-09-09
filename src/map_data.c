@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:33 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/06 10:18:24 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/09 13:55:49 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,12 @@ t_map_data	*ft_map_data(int fd)
 	proto_map = ft_read_map(fd);
 	map->map_wth = ft_map_wth(proto_map);
 	map->map_hth = ft_map_hth(proto_map);
-	map->collec = ft_get_collec(proto_map);
+	map->collec = ft_get_collec(proto_map, 'C');
 	map->map_textures = ft_map_texture(map->map_wth / 64, map->map_hth / 64,
 			proto_map);
 	map->pj_init = ft_get_init_pj(proto_map);
+	map->act_end = 0;
+	map->enemies = ft_fill_enemies(proto_map);
 	ft_free_txt(proto_map);
 	return (map);
 }
@@ -44,7 +46,7 @@ char	**ft_read_map(int fd)
 	return (map);
 }
 
-int	ft_get_collec(char **p_map)
+int	ft_get_collec(char **p_map, char c)
 {
 	int	i;
 	int	j;
@@ -57,7 +59,7 @@ int	ft_get_collec(char **p_map)
 		j = -1;
 		while (p_map[i][++j])
 		{
-			if (p_map[i][j] == 'C')
+			if (p_map[i][j] == c)
 				collec++;
 		}
 	}
