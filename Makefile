@@ -6,7 +6,7 @@
 #    By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 09:28:41 by ytoro-mo          #+#    #+#              #
-#    Updated: 2022/09/09 10:24:27 by ytoro-mo         ###   ########.fr        #
+#    Updated: 2022/09/12 11:28:11 by ytoro-mo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,21 +16,14 @@ LIB_A	= ./lib
 USER	= ytoro-mo
 GLFW	= /System/Volumes/Data/sgoinfre/goinfre/Perso/ytoro-mo/homebrew/Cellar/glfw/3.3.8/lib
 
-HEADERS	= -I ./include
+HEADERS	= -I ./includes
 LIBS	= -lglfw -L $(GLFW) $(LIB_A)/libmlx42.a $(LIB_A)/libft.a
 SRCS	= $(shell find ./src -iname "*.c")
 OBJS	= ${SRCS:.c=.o}
 
 
 BOLD	= \033[1m
-BLACK	= \033[30;1m
-RED	= \033[31;1m
 GREEN	= \033[32;1m
-YELLOW	= \033[33;1m
-BLUE	= \033[34;1m
-MAGENTA	= \033[35;1m
-CYAN	= \033[36;1m
-WHITE	= \033[37;1m
 RESET	= \033[0m
 
 # //= Recipes =//

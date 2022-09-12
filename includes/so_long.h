@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:05:04 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/09 13:56:09 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:40:04 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,18 @@ int			ft_check_atleast(char **map, int i);
 int			ft_check_line_size(char **map);
 void		game_init(int fd, char **file);
 void		map_struct_cleaner(t_map_data	*map);
-void		ft_enemy_patrol(t_map_data *map);
-void		ft_ene_mov(t_map_data *map, int *dir, int *xy, int *nxt_nxt);
-void		ft_ene_mov_2(t_map_data *map, int *nxt, int *dir, int *nxt_nxt);
+void		ft_enemy_patrol(t_map_data *map, int i);
 char		**ft_paths(void);
-int			ft_is_nxt_pj(char	**check_path);
+int			ft_is_nxt_pj(char	*check_path);
 t_ene		**ft_fill_enemies(char **p_map);
+void		ft_new_enemy(char **p_map, t_ene	**enemies);
+void		ft_key_up_ene(t_map_data *map, int i);
+void		ft_mov_up_ene(t_map_data *map, int nxt_x, int nxt_y, int i);
+void		ft_key_down_ene(t_map_data *map, int i);
+void		ft_mov_down_ene(t_map_data *map, int nxt_x, int nxt_y, int i);
+void		ft_key_right_ene(t_map_data *map, int i);
+void		ft_mov_right_ene(t_map_data *map, int nxt_x, int nxt_y, int i);
+void		ft_key_left_ene(t_map_data *map, int i);
+void		ft_mov_left_ene(t_map_data *map, int nxt_x, int nxt_y, int i);
 
 #endif

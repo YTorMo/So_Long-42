@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 13:56:38 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/09 11:31:16 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:31:30 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_key_right(t_map_data *map)
 	int	nxt_y;
 	int	nxt_x;
 
-	nxt_x = ((map->pj_init->x_pos) / 64) + 1;
 	nxt_y = (map->pj_init->y_pos) / 64;
+	nxt_x = ((map->pj_init->x_pos) / 64) + 1;
 	if (ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, OBSTACLE_PATH, 69)
 		&& ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, ENEMY_PATH, 69))
 	{
@@ -31,6 +31,11 @@ void	ft_key_right(t_map_data *map)
 					map->map_textures[nxt_y][nxt_x]->path,
 				EXIT_PATH, ft_strlen(EXIT_PATH))))
 			mlx_close_window(map->mlx);
+	}
+	else if (!ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, ENEMY_PATH, 69))
+	{
+		ft_printf("TAS MUERTO\n");
+		mlx_close_window(map->mlx);
 	}
 	map->act_end = 0;
 }

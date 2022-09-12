@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:33 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/09 13:55:49 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/12 11:13:46 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_map_data	*ft_map_data(int fd)
 	map->map_wth = ft_map_wth(proto_map);
 	map->map_hth = ft_map_hth(proto_map);
 	map->collec = ft_get_collec(proto_map, 'C');
+	map->ene_cuant = ft_get_collec(proto_map, 'N');
 	map->map_textures = ft_map_texture(map->map_wth / 64, map->map_hth / 64,
 			proto_map);
 	map->pj_init = ft_get_init_pj(proto_map);

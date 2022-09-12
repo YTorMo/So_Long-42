@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:44:36 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/07 17:25:25 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:26:17 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_texture_path(char c)
 	else if (c == 'E')
 		return (EXIT_PATH);
 	else if (c == 'C')
-		return (COLLECTIBLE_PATH);
+		return (COLLEC_PATH);
 	else if (c == 'N')
 		return (ENEMY_PATH);
 	else

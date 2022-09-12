@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 13:00:50 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/07 12:45:56 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:25:40 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_collec_check(t_map_data *map, int nxt_x, int nxt_y)
 {
 	char	*items;
 
-	if (!ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, COLLECTIBLE_PATH,
-		ft_strlen(COLLECTIBLE_PATH)))
+	if (!ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, COLLEC_PATH,
+		ft_strlen(COLLEC_PATH)))
 	{
 		map->collec--;
 		map->map_textures[nxt_y][nxt_x]->path = LAND_PATH;

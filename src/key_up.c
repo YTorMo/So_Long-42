@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 13:45:56 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/09 11:31:22 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/12 15:31:27 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ void	ft_key_up(t_map_data *map)
 					map->map_textures[nxt_y][nxt_x]->path,
 				EXIT_PATH, ft_strlen(EXIT_PATH))))
 			mlx_close_window(map->mlx);
+	}
+	else if (!ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, ENEMY_PATH, 69))
+	{
+		ft_printf("TAS MUERTO\n");
+		mlx_close_window(map->mlx);
 	}
 	map->act_end = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:06:00 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/09 13:32:22 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:24:49 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define EXIT_PATH "./assets/exit_trs.png"
 # define LAND_BASE_PATH "./assets/Land_Base.png"
 # define OBSTACLE_PATH "./assets/Obs_trs.png"
-# define COLLECTIBLE_PATH "./assets/collect.png"
+# define COLLEC_PATH "./assets/collect.png"
 # define PJR_PATH "./assets/bun_R.png"
 # define PJR2_PATH "./assets/bun_R2.png"
 # define PJL_PATH "./assets/bun_L.png"
@@ -71,6 +71,7 @@ typedef struct s_map_data
 	int			ene_mov;
 	t_ene		**enemies;
 	int			ene_num;
+	int			ene_cuant;
 
 }	t_map_data;
 

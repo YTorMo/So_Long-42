@@ -4,3 +4,4 @@ README.txt
 *.o
 ._*
 lib/MLX42_/*
+so_long
