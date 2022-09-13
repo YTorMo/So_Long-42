@@ -6,42 +6,43 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 16:15:06 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/12 12:57:22 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/13 09:46:53 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	ft_keyhook(mlx_key_data_t keydata, t_map_data *map)
 {
 	int	i;
 
 	i = -1;
-	if (keydata.key == MLX_KEY_W && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT) && map->act_end == 0)
+	if (keydata.key == MLX_KEY_W && ((keydata.action == MLX_PRESS)
+			|| (keydata.action == MLX_REPEAT)) && map->act_end == 0)
 		ft_key_up_2(map);
 	else if (map->act_end == 1)
 		ft_key_up(map);
-	else if (keydata.key == MLX_KEY_S && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT) && map->act_end == 0)
+	else if (keydata.key == MLX_KEY_S && ((keydata.action == MLX_PRESS)
+			|| (keydata.action == MLX_REPEAT)) && map->act_end == 0)
 		ft_key_down_2(map);
 	else if (map->act_end == 2)
 		ft_key_down(map);
 	else
 		ft_keyhook_2(keydata, map);
-	while (++i < map->ene_cuant)
-		ft_enemy_patrol(map, i);
+	if (((keydata.action == MLX_PRESS) || (keydata.action == MLX_REPEAT)))
+		while (++i < map->ene_cuant)
+			ft_enemy_patrol(map, i);
 }
 
 void	ft_keyhook_2(mlx_key_data_t keydata, t_map_data *map)
 {
-	if (keydata.key == MLX_KEY_D && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT) && map->act_end == 0)
+	if (keydata.key == MLX_KEY_D && ((keydata.action == MLX_PRESS)
+			|| (keydata.action == MLX_REPEAT)) && map->act_end == 0)
 		ft_key_right_2(map);
 	else if (map->act_end == 3)
 		ft_key_right(map);
-	else if (keydata.key == MLX_KEY_A && (keydata.action == MLX_PRESS
-			|| keydata.action == MLX_REPEAT) && map->act_end == 0)
+	else if (keydata.key == MLX_KEY_A && ((keydata.action == MLX_PRESS)
+			|| (keydata.action == MLX_REPEAT)) && map->act_end == 0)
 		ft_key_left_2(map);
 	else if (map->act_end == 4)
 		ft_key_left(map);

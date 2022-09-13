@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:18 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/12 13:17:06 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:18:57 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_game_init(int fd)
 	char		*item;
 
 	map = ft_map_data(fd);
-	map->mlx = mlx_init(map->map_wth, map->map_hth + 20, "SO_LONG", true);
+	map->mlx = mlx_init(map->map_wth, map->map_hth + 20, NAME_P, true);
 	if (!map->mlx)
 		exit(EXIT_FAILURE);
 	ft_img_filler(map);

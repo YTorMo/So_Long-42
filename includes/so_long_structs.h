@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:06:00 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/12 13:24:49 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/13 09:23:21 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define PJD2_PATH "./assets/bun_D2.png"
 # define ENEMY_PATH "./assets/ene.png"
 # define GO_PATH "./assets/game_over.png"
+# define NAME_P "CACUTXA AND THE LETXUGUITA QUEST."
 
 typedef struct s_map_tiles
 {
@@ -72,6 +73,8 @@ typedef struct s_map_data
 	t_ene		**enemies;
 	int			ene_num;
 	int			ene_cuant;
+	int			prv_pjx;
+	int			prv_pjy;
 
 }	t_map_data;
 

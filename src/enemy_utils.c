@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 13:35:58 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/12 14:01:03 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:06:25 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,18 @@ int	ft_is_nxt_pj(char	*check_path)
 {
 	char	**paths;
 	int		i;
+	int		ok;
 
 	paths = ft_paths();
 	i = -1;
+	ok = 0;
 	while (++i < 8)
 	{
 		if (ft_strncmp(check_path, paths[i], ft_strlen(paths[i])))
 		{
-			free(paths);
-			return (1);
+			ok = 1;
 		}
 	}
 	free(paths);
-	return (0);
+	return (ok);
 }

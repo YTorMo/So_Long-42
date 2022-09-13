@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:33 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/12 11:13:46 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/13 09:36:24 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ t_map_data	*ft_map_data(int fd)
 	map->pj_init = ft_get_init_pj(proto_map);
 	map->act_end = 0;
 	map->enemies = ft_fill_enemies(proto_map);
+	map->prv_pjx = map->pj_init->x_pos;
+	map->prv_pjy = map->pj_init->y_pos;
 	ft_free_txt(proto_map);
 	return (map);
 }

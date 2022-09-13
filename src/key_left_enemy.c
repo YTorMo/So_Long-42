@@ -6,11 +6,11 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 13:45:56 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/12 14:01:29 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/13 09:54:34 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	ft_key_left_ene(t_map_data *map, int i)
 {
@@ -19,17 +19,22 @@ void	ft_key_left_ene(t_map_data *map, int i)
 
 	nxt_y = ((map->enemies[i]->y_pos) / 64);
 	nxt_x = ((map->enemies[i]->x_pos) / 64) - 1;
-	if (ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, OBSTACLE_PATH, 69)
-		&& ft_is_nxt_pj(map->map_textures[nxt_y][nxt_x]->path)
-		&& ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, ENEMY_PATH, 69)
-		&& ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, COLLEC_PATH, 69))
-	{
-		ft_mov_left_ene(map, nxt_x, nxt_y, i);
-	}
-	else if (!ft_is_nxt_pj(map->map_textures[nxt_y][nxt_x]->path))
+	if (nxt_x == map->prv_pjx && nxt_y == map->prv_pjy)
+		return ;
+	if (!ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, PJR_PATH, 69)
+		|| !ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, PJL_PATH, 69)
+		|| !ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, PJU_PATH, 69)
+		|| !ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, PJD_PATH, 69))
 	{
 		ft_printf("TAS MUERTO\n");
 		mlx_close_window(map->mlx);
+	}
+	if (ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, OBSTACLE_PATH, 69)
+		&& ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, ENEMY_PATH, 69)
+		&& ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, EXIT_PATH, 69)
+		&& ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, COLLEC_PATH, 69))
+	{
+		ft_mov_left_ene(map, nxt_x, nxt_y, i);
 	}
 }
 
