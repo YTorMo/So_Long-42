@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 13:51:59 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/13 10:05:59 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/13 10:16:59 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_key_down(t_map_data *map)
 					map->map_textures[nxt_y][nxt_x]->path,
 				EXIT_PATH, ft_strlen(EXIT_PATH))))
 		{
-			ft_printf("HAS GANADO!!.");
+			ft_printf("\nHAS GANADO!!.\n");
 			mlx_close_window(map->mlx);
 		}
 	}
@@ -83,7 +83,7 @@ void	ft_key_down_2(t_map_data *map)
 					map->map_textures[nxt_y][nxt_x]->path,
 				EXIT_PATH, ft_strlen(EXIT_PATH))))
 		{
-			ft_printf("HAS GANADO!!.");
+			ft_printf("HAS GANADO!!.\n");
 			mlx_close_window(map->mlx);
 		}
 	}
