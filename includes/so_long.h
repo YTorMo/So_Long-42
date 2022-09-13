@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:05:04 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/12 13:40:04 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/13 10:15:23 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@
 # include "../lib/libft/libft.h"
 # include "so_long_structs.h"
 # include <fcntl.h>
-# include <memory.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <time.h>
 # include <math.h>
 
 char		**ft_read_map(int fd);
@@ -71,8 +66,6 @@ int			ft_check_line_size(char **map);
 void		game_init(int fd, char **file);
 void		map_struct_cleaner(t_map_data	*map);
 void		ft_enemy_patrol(t_map_data *map, int i);
-char		**ft_paths(void);
-int			ft_is_nxt_pj(char	*check_path);
 t_ene		**ft_fill_enemies(char **p_map);
 void		ft_new_enemy(char **p_map, t_ene	**enemies);
 void		ft_key_up_ene(t_map_data *map, int i);

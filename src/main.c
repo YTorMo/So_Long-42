@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 09:01:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/09 10:27:07 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/13 10:08:26 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int32_t	main(int ac, char **av)
 		else
 			game_init(fd, av[1]);
 	}
-	ft_printf("NOIS.\n");
 	system("leaks -q so_long");
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 13:45:56 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/13 09:43:10 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/13 10:06:43 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,14 @@ void	ft_key_up(t_map_data *map)
 	{
 		if (ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, EXIT_PATH,
 			ft_strlen(EXIT_PATH)))
-		{
 			ft_mov_up(map, nxt_x, nxt_y);
-		}
 		else if (!(map->collec) && !(ft_strncmp(
 					map->map_textures[nxt_y][nxt_x]->path,
 				EXIT_PATH, ft_strlen(EXIT_PATH))))
+		{
+			ft_printf("HAS GANADO!!.");
 			mlx_close_window(map->mlx);
+		}
 	}
 	map->act_end = 0;
 }
@@ -77,13 +78,14 @@ void	ft_key_up_2(t_map_data *map)
 	{
 		if (ft_strncmp(map->map_textures[nxt_y][nxt_x]->path, EXIT_PATH,
 			ft_strlen(EXIT_PATH)))
-		{
 			ft_mov_up_2(map, nxt_x, nxt_y);
-		}
 		else if (!(map->collec) && !(ft_strncmp(
 					map->map_textures[nxt_y][nxt_x]->path,
 				EXIT_PATH, ft_strlen(EXIT_PATH))))
+		{
+			ft_printf("HAS GANADO!!.");
 			mlx_close_window(map->mlx);
+		}
 	}
 	map->act_end = 1;
 }
