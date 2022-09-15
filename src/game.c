@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:18 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/12 16:18:57 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/15 11:06:45 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_game_init(int fd)
 	map->txt_c = mlx_put_string(map->mlx, item, 110, map->map_hth);
 	free(item);
 	map->mov = 0;
-	mlx_key_hook(map->mlx, &ft_keyhook, map);
+	mlx_key_hook(map->mlx, (mlx_keyfunc)ft_keyhook, map);
 	mlx_loop(map->mlx);
 	mlx_terminate(map->mlx);
 	map_struct_cleaner(map);

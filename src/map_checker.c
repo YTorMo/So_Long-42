@@ -6,13 +6,13 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:57:29 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/07 17:22:19 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/15 11:26:25 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_map_checker(char	**path)
+int	ft_map_checker(char	*path)
 {
 	char	**map;
 	int		fd;
@@ -72,7 +72,7 @@ int	ft_check_comp(char **map)
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'C' &&
 				map[i][j] != 'E' && map[i][j] != 'P' && map[i][j] != 'N')
 			{
-				perror("Error\nMap composition is incorrect.");
+				ft_printf("Error\nMap composition is incorrect.\n");
 				return (0);
 			}
 		}
@@ -103,7 +103,7 @@ int	ft_check_atleast(char **map, int i)
 	}
 	if (!c[0] || !c[2] || c[1] != 1)
 	{
-		perror("Error\nMap contents are not correct.");
+		ft_printf("Error\nMap contents are not correct.\n");
 		return (0);
 	}
 	return (1);

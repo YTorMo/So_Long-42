@@ -6,13 +6,13 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 16:15:06 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/09/13 09:46:53 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/15 11:19:53 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_keyhook(mlx_key_data_t keydata, t_map_data *map)
+void	*ft_keyhook(mlx_key_data_t keydata, t_map_data *map)
 {
 	int	i;
 
@@ -32,6 +32,7 @@ void	ft_keyhook(mlx_key_data_t keydata, t_map_data *map)
 	if (((keydata.action == MLX_PRESS) || (keydata.action == MLX_REPEAT)))
 		while (++i < map->ene_cuant)
 			ft_enemy_patrol(map, i);
+	return (NULL);
 }
 
 void	ft_keyhook_2(mlx_key_data_t keydata, t_map_data *map)

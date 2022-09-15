@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:11 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/05 16:55:55 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/15 11:26:14 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_check_surrounded(char **map)
 	{
 		if (map[i][0] != '1' || map[i][ft_strlen(map[i]) - 1] != '1')
 		{
-			perror("Error\nThe map is not surrounded by walls.");
+			ft_printf("Error\nThe map is not surrounded by walls.\n");
 			return (0);
 		}
 		if (i == 0 || !map[i + 1])
@@ -32,7 +32,7 @@ int	ft_check_surrounded(char **map)
 			{
 				if (map[i][j] != '1')
 				{
-					perror("Error\nThe map is not surrounded by walls.");
+					ft_printf("Error\nThe map is not surrounded by walls.\n");
 					return (0);
 				}
 			}
@@ -56,7 +56,7 @@ int	ft_check_line_size(char **map)
 			b = ft_strlen(map[i + 1]);
 			if (a != b)
 			{
-				perror("Error\nThe map is not a rectangle.");
+				ft_printf("Error\nThe map is not a rectangle.\n");
 				return (0);
 			}
 		}

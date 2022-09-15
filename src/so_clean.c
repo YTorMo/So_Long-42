@@ -6,7 +6,7 @@
 /*   By: ytoro-mo < ytoro-mo@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 09:44:13 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/09/09 13:50:08 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:56:57 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,21 @@ void	map_struct_cleaner(t_map_data	*map)
 		}
 		free(map->map_textures[i]);
 	}
-	i = -1;
-	while (map->enemies[++i])
-		free(map->enemies[i]);
+	if (map->ene_cuant)
+		ft_free_enemies(map);
 	free(map->enemies);
 	free (map->txt);
 	free (map->txt_c);
 	free(map->map_textures);
 	free(map->pj_init);
 	free (map);
+}
+
+void	ft_free_enemies(t_map_data	*map)
+{
+	int	i;
+
+	i = -1;
+	while (map->enemies[++i])
+		free(map->enemies[i]);
 }
